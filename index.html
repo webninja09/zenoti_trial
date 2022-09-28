@@ -328,7 +328,12 @@
       }
       pdf.save("zenoti_report.pdf");
       // $(".report").hide();
-      window.close();
+
+ setTimeout(() => {
+          window.close();
+        }, 1000);
+      });
+
     });
   }
 </script>
