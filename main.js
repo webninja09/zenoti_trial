@@ -186,5 +186,8 @@ function submit() {
 
 var db = document.querySelector("#db_pdf");
 db.addEventListener("click", function() {
-  window.open("https://ziey3b.csb.app/?r1=" + rd1 + "&r2=" + rd2 + "&r3=" + rd3, "_blank");
+ /* window.open("https://ziey3b.csb.app/?r1=" + rd1 + "&r2=" + rd2 + "&r3=" + rd3, "_blank"); */
+  
+    window.open("https://webninja09.github.io/zenoti_trial/?r1=" + rd1 + "&r2=" + rd2 + "&r3=" + rd3, "_blank"); 
+
 });
