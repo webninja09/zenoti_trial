@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Zenoti Report</title>
+
+  <link rel="stylesheet" href="main.css" />
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap");
+
+    body {
+      box-sizing: border-box;
+      overflow-x: hidden;
+      font-family: "Open Sans", sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .section.form-section {
+      z-index: 1;
+      background-image: linear-gradient(48deg, #00b6ed, #33ad6a);
+      color: #fff;
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+
+    .site-wrapper {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: auto;
+      max-width: 1120px;
+      margin-right: auto;
+      margin-left: auto;
+      padding-right: 80px;
+      padding-left: 80px;
+    }
+
+    h2 {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      font-size: 28px;
+      line-height: 1.2;
+      font-weight: 700;
+    }
+
+    .divider-digital-presence-report {
+      width: 100%;
+      height: 2px;
+      background-color: #fff;
+    }
+
+    .body-medium {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .section {
+      position: relative;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      padding-top: 120px;
+      padding-bottom: 120px;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      background-color: #fff;
+    }
+
+    .digital-presence-results-grid-container {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      grid-row-gap: 60px;
+    }
+
+    .digital-presence-results-grid {
+      display: -ms-grid;
+      display: grid;
+      grid-auto-columns: 1fr;
+      grid-column-gap: 32px;
+      grid-row-gap: 16px;
+      -ms-grid-columns: minmax(-webkit-min-content, 0.25fr) 1fr;
+      -ms-grid-columns: minmax(min-content, 0.25fr) 1fr;
+      grid-template-columns: minmax(-webkit-min-content, 0.25fr) 1fr;
+      grid-template-columns: minmax(min-content, 0.25fr) 1fr;
+      -ms-grid-rows: auto;
+      grid-template-rows: auto;
+    }
+
+    .dpc-score-container {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      height: 100%;
+      padding-right: 20px;
+      padding-left: 20px;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      border-right: 1px solid #000;
+    }
+
+    .dpc-score-type-text {
+      color: #03b6e8;
+      font-size: 16px;
+      font-weight: 700;
+      text-align: center;
+      letter-spacing: 0;
+    }
+
+    h4 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 18px;
+      line-height: 1.2;
+      font-weight: 700;
+    }
+
+    .dpc-score-text {
+      margin-top: 0;
+      font-size: 120px;
+      line-height: 1;
+      text-align: center;
+    }
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+  <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+</head>
+
+<body>
+  <div id="content" class="report">
+    <!-- report  -->
+
+    <div class="section form-section section-small wf-section">
+      <div class="site-wrapper">
+        <div class="section-heading-container left-aligned">
+          <h2 class="h2-heading">Digital Presence Report</h2>
+          <div class="divider-digital-presence-report"></div>
+        </div>
+        <p class="body-medium left-align-txt">
+          Digital presence is how your business and brand appear to the world
+          online. When people search for your business online, what will they
+          find? Your website, your google listing, your social media accounts
+          and most importantly what people are saying about you.Your online
+          presence is often the first interaction you'll have with a new
+          customer and one that your current customers will return to. Making
+          sure you can be found and chosen is critical to your success.This
+          report will help you get a clear picture of what your digital
+          presence looks like. Simply answer the questions below to find out
+          how you score in each area and where you need to improve.
+        </p>
+      </div>
+    </div>
+
+    <div class="section wf-section">
+      <div class="site-wrapper">
+        <div class="digital-presence-results-grid-container">
+          <div class="digital-presence-results-grid">
+            <div id="w-node-_2f218860-713c-baaa-fd1e-8546f23b52ee-af887d14" class="dpc-score-container">
+              <h2 id="result" class="dpc-score-text">31.25</h2>
+              <div class="dpc-score-type-text">Online Listing Score</div>
+            </div>
+            <div id="w-node-_2f218860-713c-baaa-fd1e-8546f23b52f3-af887d14">
+              <p class="body-medium">
+                Can prospective customers find your business online? Do you
+                have a website? If not, get one.;Make sure your business is
+                listed in all the search engines and most importantly claim
+                your online listing and make sure the information is
+                accurate.Missing and inaccurate profiles lower your ranking on
+                Google and make it harder for new customers to find you.
+              </p>
+            </div>
+          </div>
+          <h4>
+            Claim and manage all your online listings to boost your Google
+            ranking, increase traffic, and get more customers.
+          </h4>
+          <div class="digital-presence-results-grid">
+            <div id="w-node-_2f218860-713c-baaa-fd1e-8546f23b5301-af887d14" class="dpc-score-container">
+              <h2 id="result2" class="dpc-score-text">7</h2>
+              <div class="dpc-score-type-text">Online Reputation Score</div>
+            </div>
+            <div id="w-node-_2f218860-713c-baaa-fd1e-8546f23b5306-af887d14">
+              <p class="body-medium">
+                Once prospective customers find you, they want to know if they
+                can trust you to provide a quality service. What have others
+                said about you and your business is extremely important.48% of
+                consumers won’t consider a business with fewer than 4 stars
+                and 86% only pay attention to reviews written in the last 3
+                months.
+              </p>
+            </div>
+          </div>
+          <div class="digital-presence-results-grid">
+            <div id="w-node-_2f218860-713c-baaa-fd1e-8546f23b530d-af887d14" class="dpc-score-container">
+              <h2 id="result3" class="dpc-score-text">20</h2>
+              <div class="dpc-score-type-text">Online Listing Score</div>
+            </div>
+            <div id="w-node-_2f218860-713c-baaa-fd1e-8546f23b5312-af887d14">
+              <p class="body-medium">
+                You spend (or should) time on making sure people can find you
+                online. You’ve worked on your reputation and should have at
+                least a 4-star rating (right?).That’s great but can people
+                book an appointment once they’re ready? 76% of customers
+                prefer the convenience of self-service online
+                scheduling.Convert your website visitors into guests with an
+                easy and convenient way to book online.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="editor"></div>
+  <button class="blog-cta-btn" onclick="CreatePDFfromHTML()">
+    Download Again
+  </button>
+</body>
+
+<script>
+  const urlParams = new URLSearchParams(location.search);
+
+  let r1 = 0;
+  let r2 = 0;
+  let r3 = 0;
+
+  for (const [key, value] of urlParams) {
+    if (key === "r1") {
+      r1 = value;
+    }
+
+    if (key === "r2") {
+      r2 = value;
+    }
+
+    if (key === "r3") {
+      r3 = value;
+    }
+  }
+
+  let h2Tag1 = document.querySelector("#result");
+  let h2Tag2 = document.querySelector("#result2");
+  let h2Tag3 = document.querySelector("#result3");
+  h2Tag1.innerHTML = "" + r1;
+  h2Tag2.innerHTML = "" + r2;
+  h2Tag3.innerHTML = "" + r3;
+
+  var doc = new jsPDF();
+  var specialElementHandlers = {
+    "#editor": function (element, renderer) {
+      return true;
+    }
+  };
+
+  CreatePDFfromHTML();
+
+  function CreatePDFfromHTML() {
+    var HTML_Width = $(".report").width();
+    var HTML_Height = $(".report").height();
+    var top_left_margin = 15;
+    var PDF_Width = HTML_Width + top_left_margin * 2;
+    var PDF_Height = PDF_Width * 1.5 + top_left_margin * 2;
+    var canvas_image_width = HTML_Width;
+    var canvas_image_height = HTML_Height;
+
+    var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 1;
+
+    html2canvas($(".report")[0]).then(function (canvas) {
+      var imgData = canvas.toDataURL("image/jpeg", 1.0);
+      var pdf = new jsPDF("p", "pt", [PDF_Width, PDF_Height]);
+      pdf.addImage(
+        imgData,
+        "JPG",
+        top_left_margin,
+        top_left_margin,
+        canvas_image_width,
+        canvas_image_height
+      );
+      for (var i = 1; i <= totalPDFPages; i++) {
+        pdf.addPage(PDF_Width, PDF_Height);
+        pdf.addImage(
+          imgData,
+          "JPG",
+          top_left_margin,
+          -(PDF_Height * i) + top_left_margin * 4,
+          canvas_image_width,
+          canvas_image_height
+        );
+      }
+      pdf.save("zenoti_report.pdf");
+      // $(".report").hide();
+      window.close();
+    });
+  }
+</script>
+
+</html>
