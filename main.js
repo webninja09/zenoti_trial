@@ -170,6 +170,26 @@ var submitButton = document.querySelector("#result-submit");
 submitButton.addEventListener("click", function() {
   submit();
 });
+
+const colors = {
+  red : "#E53A24",
+  orange : "#FF7F00",
+  yellow : "#FFD26E",
+  green : "#33AD6A"
+}
+
+const assignColors = (score) => {
+  if(score >= 0 && score <=49 ) return colors.red
+  
+  if(score >= 50 && score <=69) return colors.orange
+
+  if(score >= 70 && score <=89) return colors.yellow
+    
+  if(score >= 90 ) return colors.green
+
+}
+
+
 function submit() {
   var a = document.querySelector("#result1"), d = document.querySelector("#result2"), e = document.querySelector("#result3"), b = scoreFBRating + scoreGoogleRating + scoreYelpRating + scoreFbFollowers + scoreGoogleFollowers + scoreYelpFollowers, c = scoreAppointment;
   ar = score1 + score2 + score3;
@@ -177,17 +197,28 @@ function submit() {
   a.innerHTML = ar;
   d.innerHTML = b;
   e.innerHTML = c;
+
+  a.style.color = assignColors(Number(ar));
+  d.style.color = assignColors(Number(b));
+  e.style.color = assignColors(Number(c));
+
   rd1 = ar;
   rd2 = b;
   rd3 = c;
+
+
+
+
+
+
 }
 
 //code to give score color ends
 
 var db = document.querySelector("#db_pdf");
+
 db.addEventListener("click", function() {
  /* window.open("https://ziey3b.csb.app/?r1=" + rd1 + "&r2=" + rd2 + "&r3=" + rd3, "_blank"); */
+  window.open("https://webninja09.github.io/zenoti_trial/?r1=" + rd1 + "&r2=" + rd2 + "&r3=" + rd3, "_blank"); 
   
-    window.open("https://webninja09.github.io/zenoti_trial/?r1=" + rd1 + "&r2=" + rd2 + "&r3=" + rd3, "_blank"); 
-
 });

@@ -257,6 +257,29 @@
 </body>
 
 <script>
+  // functions and data for setting colors;
+
+  const colors = {
+    red : "#E53A24",
+    orange : "#FF7F00",
+    yellow : "#FFD26E",
+    green : "#33AD6A"
+  }
+
+  const assignColors = (score) => {
+    if(score >= 0 && score <=49 ) return colors.red
+    
+    if(score >= 50 && score <=69) return colors.orange
+
+    if(score >= 70 && score <=89) return colors.yellow
+      
+    if(score >= 90 ) return colors.green
+
+  }
+  
+
+
+
   const urlParams = new URLSearchParams(location.search);
 
   let r1 = 0;
@@ -284,12 +307,23 @@
   h2Tag2.innerHTML = "" + r2;
   h2Tag3.innerHTML = "" + r3;
 
+  // assigning colors based on score
+
+  h2Tag1.style.color = assignColors(Number(r1))
+  h2Tag2.style.color = assignColors(Number(r2))
+  h2Tag3.style.color = assignColors(Number(r3));
+
+
+
   var doc = new jsPDF();
   var specialElementHandlers = {
     "#editor": function (element, renderer) {
       return true;
     }
   };
+
+
+  
 
   CreatePDFfromHTML();
 
@@ -329,13 +363,13 @@
       pdf.save("zenoti_report.pdf");
       // $(".report").hide();
 
- setTimeout(() => {
-          window.close();
-        }, 1000);
-      });
+      setTimeout(() => {
+                window.close();
+              }, 1000);
+            });
 
-    });
-  }
+    }
+
 </script>
 
 </html>
